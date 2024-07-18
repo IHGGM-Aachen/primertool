@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primertool.insilicopcr &mdash; primertool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=af2ce170"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            primertool
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html">How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#general-requirements-for-primers">General requirements for primers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#variantprimergenerator">VariantPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#exonprimergenerator">ExonPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#geneprimergenerator">GenePrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomicpositionprimergenerator">GenomicPositionPrimerGenerator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html#resources-used">Resources used</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#primer3">Primer3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomepy">genomepy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#hgvs-parser">hgvs.parser</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">primertool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../primertool.html">primertool package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.exceptions">primertool.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRRequestError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRRequestError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolError"><code class="docutils literal notranslate"><span class="pre">PrimertoolError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolExonLengthError"><code class="docutils literal notranslate"><span class="pre">PrimertoolExonLengthError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolGenomeError"><code class="docutils literal notranslate"><span class="pre">PrimertoolGenomeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolInputError"><code class="docutils literal notranslate"><span class="pre">PrimertoolInputError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolIntronicPositionError"><code class="docutils literal notranslate"><span class="pre">PrimertoolIntronicPositionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolMutalyzerError"><code class="docutils literal notranslate"><span class="pre">PrimertoolMutalyzerError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolNoPrimerFoundError"><code class="docutils literal notranslate"><span class="pre">PrimertoolNoPrimerFoundError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.functions">primertool.functions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.calculate_targets"><code class="docutils literal notranslate"><span class="pre">calculate_targets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.correct_intronic_variant"><code class="docutils literal notranslate"><span class="pre">correct_intronic_variant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.filter_unique_primers"><code class="docutils literal notranslate"><span class="pre">filter_unique_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.find_sequence_positions"><code class="docutils literal notranslate"><span class="pre">find_sequence_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_gene_information"><code class="docutils literal notranslate"><span class="pre">get_gene_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_snps"><code class="docutils literal notranslate"><span class="pre">get_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mask_snps"><code class="docutils literal notranslate"><span class="pre">mask_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mutalyzer_error_handler"><code class="docutils literal notranslate"><span class="pre">mutalyzer_error_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.parse_mutation"><code class="docutils literal notranslate"><span class="pre">parse_mutation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.purge_primer_pair"><code class="docutils literal notranslate"><span class="pre">purge_primer_pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.reduce_numbers_in_string"><code class="docutils literal notranslate"><span class="pre">reduce_numbers_in_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.remove_whitespaces"><code class="docutils literal notranslate"><span class="pre">remove_whitespaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.split_nm"><code class="docutils literal notranslate"><span class="pre">split_nm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.insilicopcr">primertool.insilicopcr module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.insilicopcr.InSilicoPCR"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.logger">primertool.logger module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.primertool">primertool.primertool module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerPair"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenePrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerGenerator"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerPair"><code class="docutils literal notranslate"><span class="pre">PrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.ucsc_database">primertool.ucsc_database module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.ucsc_database.query"><code class="docutils literal notranslate"><span class="pre">query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.unittest">primertool.unittest module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.unittest.PrimertoolTest"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../streamlit.html">streamlit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-custom-components">streamlit_custom_components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.generate_primers"><code class="docutils literal notranslate"><span class="pre">generate_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.kuerzel_check"><code class="docutils literal notranslate"><span class="pre">kuerzel_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-help">streamlit_help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-main">streamlit_main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-primertool">streamlit_primertool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup and Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#streamlit">Streamlit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#log-access">Log access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mysql-setup.html">Local UCSC database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#download-database-tables">Download database tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-and-populate-local-database">Create and populate local database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-new-user-to-access-the-database">Create new user to access the database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment-firewall.html">Deployment using proxy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">primertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">primertool.insilicopcr</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for primertool.insilicopcr</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module provides a class to perform in-silico PCR. It serves as a python interface to the</span>
+<span class="sd">UCSC In-Silico PCR tool (https://genome.ucsc.edu/cgi-bin/hgPcr).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+
+<div class="viewcode-block" id="InSilicoPCR"><a class="viewcode-back" href="../../primertool.html#primertool.insilicopcr.InSilicoPCR">[docs]</a><span class="k">class</span> <span class="nc">InSilicoPCR</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class provides a python interface to the UCSC In-Silico PCR tool. It takes a forward and a reverse primer</span>
+<span class="sd">    and returns the PCR product.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        forward_primer (str): forward primer sequence</span>
+<span class="sd">        reverse_primer (str): reverse primer sequence</span>
+<span class="sd">        fasta_pcr (list): fasta output from the UCSC In-Silico PCR</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_primer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">reverse_primer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_product_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">,</span>
+                 <span class="n">min_perfect_match</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">min_good_match</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">flip_reverse_primer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the InSilicoPCR object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            forward_primer (str): forward primer sequence (required)</span>
+<span class="sd">            reverse_primer (str): reverse primer sequence (required)</span>
+<span class="sd">            max_product_size (int): maximum product size (optional, default=4000)</span>
+<span class="sd">            min_perfect_match (int): minimum perfect match (optional, default=15)</span>
+<span class="sd">            min_good_match (int): minimum good match (optional, default=15)</span>
+<span class="sd">            flip_reverse_primer (bool): flip reverse primer (optional, default=False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forward_primer</span> <span class="o">=</span> <span class="n">forward_primer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reverse_primer</span> <span class="o">=</span> <span class="n">reverse_primer</span>
+
+        <span class="c1"># Get the results from UCSC In-Silico PCR (https://genome.ucsc.edu/cgi-bin/hgPcr)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://genome.ucsc.edu/cgi-bin/hgPcr?&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;hgsid=1700687194_KVgKjWQCEx7I4aHWdxjPXjja0ZGc&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;org=Human&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;db=hg38&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_target=genome&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_f=</span><span class="si">{</span><span class="n">forward_primer</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_r=</span><span class="si">{</span><span class="n">reverse_primer</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;Submit=submit&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_size=</span><span class="si">{</span><span class="n">max_product_size</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_perfect=</span><span class="si">{</span><span class="n">min_perfect_match</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;wp_good=</span><span class="si">{</span><span class="n">min_good_match</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;boolshad.wp_flipReverse=</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">flip_reverse_primer</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;&amp;boolshad.wp_append=0&quot;</span><span class="p">)</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">html_bytes</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">html_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get the html output from the pcr</span>
+        <span class="n">start_idx</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&lt;PRE&gt;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;&lt;PRE&gt;&quot;</span><span class="p">)</span>
+        <span class="n">end_idx</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&lt;/PRE&gt;&quot;</span><span class="p">)</span>
+        <span class="n">output_html</span> <span class="o">=</span> <span class="n">html</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+
+        <span class="c1"># remove &lt;A&gt; tags</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;A.*?&gt;&#39;</span><span class="p">)</span>
+        <span class="n">output_html</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">output_html</span><span class="p">)</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;/A&gt;&#39;</span><span class="p">)</span>
+        <span class="n">output_html</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">output_html</span><span class="p">)</span>
+
+        <span class="c1"># translate output_html (fasta string) to biopython fasta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fasta_pcr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">output_html</span><span class="p">),</span> <span class="s2">&quot;fasta&quot;</span><span class="p">))</span>
+
+        <span class="c1"># remove all entries not corresponding to the given chromosome</span>
+        <span class="c1"># self.fasta_pcr = [entry for entry in fasta_pcr if entry.id.startswith(chromosome)]</span>
+
+<div class="viewcode-block" id="InSilicoPCR.is_uniquely_binding"><a class="viewcode-back" href="../../primertool.html#primertool.insilicopcr.InSilicoPCR.is_uniquely_binding">[docs]</a>    <span class="k">def</span> <span class="nf">is_uniquely_binding</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the PCR product is uniquely binding to just one site. A PCR primer is uniquely binding if it binds</span>
+<span class="sd">        to only one site in the genome.</span>
+<span class="sd">        Note: sometimes the same PCR product is found in a chromosome and also an alt version of the chromosome, i.e.</span>
+<span class="sd">        two entries describe the same PCR product and should only be counted as one.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># count unique binding sequences in the fasta_pcr</span>
+        <span class="n">unique_binding_sequences</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fasta_pcr</span><span class="o">.</span><span class="n">copy</span><span class="p">():</span>
+            <span class="c1"># standardize entry id to account for alternative descriptions</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[_|:].*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">unique_binding_sequences</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">entry</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_binding_sequences</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span></div></div>
+
+<span class="c1"># in_silico_pcr = InSilicoPCR(&#39;CCTGGGCAACAAAGCAAGAC&#39;, &#39;TGCGCTTGTAATGTCAATAGCT&#39;)</span>
+<span class="c1"># print(in_silico_pcr.is_uniquely_binding())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Simon Michau, Daniela Dey, Carlos Classen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

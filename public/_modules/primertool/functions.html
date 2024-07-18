@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primertool.functions &mdash; primertool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=af2ce170"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            primertool
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html">How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#general-requirements-for-primers">General requirements for primers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#variantprimergenerator">VariantPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#exonprimergenerator">ExonPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#geneprimergenerator">GenePrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomicpositionprimergenerator">GenomicPositionPrimerGenerator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html#resources-used">Resources used</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#primer3">Primer3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomepy">genomepy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#hgvs-parser">hgvs.parser</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">primertool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../primertool.html">primertool package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.exceptions">primertool.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRRequestError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRRequestError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolError"><code class="docutils literal notranslate"><span class="pre">PrimertoolError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolExonLengthError"><code class="docutils literal notranslate"><span class="pre">PrimertoolExonLengthError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolGenomeError"><code class="docutils literal notranslate"><span class="pre">PrimertoolGenomeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolInputError"><code class="docutils literal notranslate"><span class="pre">PrimertoolInputError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolIntronicPositionError"><code class="docutils literal notranslate"><span class="pre">PrimertoolIntronicPositionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolMutalyzerError"><code class="docutils literal notranslate"><span class="pre">PrimertoolMutalyzerError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolNoPrimerFoundError"><code class="docutils literal notranslate"><span class="pre">PrimertoolNoPrimerFoundError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.functions">primertool.functions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.calculate_targets"><code class="docutils literal notranslate"><span class="pre">calculate_targets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.correct_intronic_variant"><code class="docutils literal notranslate"><span class="pre">correct_intronic_variant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.filter_unique_primers"><code class="docutils literal notranslate"><span class="pre">filter_unique_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.find_sequence_positions"><code class="docutils literal notranslate"><span class="pre">find_sequence_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_gene_information"><code class="docutils literal notranslate"><span class="pre">get_gene_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_snps"><code class="docutils literal notranslate"><span class="pre">get_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mask_snps"><code class="docutils literal notranslate"><span class="pre">mask_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mutalyzer_error_handler"><code class="docutils literal notranslate"><span class="pre">mutalyzer_error_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.parse_mutation"><code class="docutils literal notranslate"><span class="pre">parse_mutation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.purge_primer_pair"><code class="docutils literal notranslate"><span class="pre">purge_primer_pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.reduce_numbers_in_string"><code class="docutils literal notranslate"><span class="pre">reduce_numbers_in_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.remove_whitespaces"><code class="docutils literal notranslate"><span class="pre">remove_whitespaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.split_nm"><code class="docutils literal notranslate"><span class="pre">split_nm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.insilicopcr">primertool.insilicopcr module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.insilicopcr.InSilicoPCR"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.logger">primertool.logger module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.primertool">primertool.primertool module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerPair"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenePrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerGenerator"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerPair"><code class="docutils literal notranslate"><span class="pre">PrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.ucsc_database">primertool.ucsc_database module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.ucsc_database.query"><code class="docutils literal notranslate"><span class="pre">query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.unittest">primertool.unittest module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.unittest.PrimertoolTest"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../streamlit.html">streamlit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-custom-components">streamlit_custom_components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.generate_primers"><code class="docutils literal notranslate"><span class="pre">generate_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.kuerzel_check"><code class="docutils literal notranslate"><span class="pre">kuerzel_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-help">streamlit_help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-main">streamlit_main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-primertool">streamlit_primertool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup and Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#streamlit">Streamlit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#log-access">Log access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mysql-setup.html">Local UCSC database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#download-database-tables">Download database tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-and-populate-local-database">Create and populate local database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-new-user-to-access-the-database">Create new user to access the database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment-firewall.html">Deployment using proxy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">primertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">primertool.functions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for primertool.functions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains static auxiliary functions that are used in the primertool package.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">import</span> <span class="nn">genomepy</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">hgvs.parser</span>
+<span class="kn">import</span> <span class="nn">hgvs.assemblymapper</span>
+<span class="kn">import</span> <span class="nn">hgvs.variantmapper</span>
+<span class="kn">import</span> <span class="nn">hgvs.sequencevariant</span>
+<span class="kn">import</span> <span class="nn">hgvs.location</span>
+<span class="kn">import</span> <span class="nn">hgvs.dataproviders.uta</span>
+<span class="kn">import</span> <span class="nn">hgvs.exceptions</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">.insilicopcr</span> <span class="kn">import</span> <span class="n">InSilicoPCR</span>
+<span class="kn">from</span> <span class="nn">.ucsc_database</span> <span class="kn">import</span> <span class="n">query</span> <span class="k">as</span> <span class="n">ucsc_query</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__package__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="remove_whitespaces"><a class="viewcode-back" href="../../primertool.html#primertool.functions.remove_whitespaces">[docs]</a><span class="k">def</span> <span class="nf">remove_whitespaces</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="nb">callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">callable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decorator to remove whitespaces from all string arguments before passing them to the decorated function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        func (callable): The function to decorate</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The decorated function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">arg</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="get_gene_information"><a class="viewcode-back" href="../../primertool.html#primertool.functions.get_gene_information">[docs]</a><span class="k">def</span> <span class="nf">get_gene_information</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nm_number</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve gene information from RefSeq database for a given NM number.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        genome_assembly (str): The genome assembly to use (&#39;hg38&#39; or &#39;hg19&#39;)</span>
+<span class="sd">        nm_number (str): The NM number of the gene to retrieve information for</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary containing the gene information</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Collecting gene information from RefSeq database for </span><span class="si">{</span><span class="n">nm_number</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;SELECT chrom, strand, name2, exonCount, cdsStart, cdsEnd, exonStarts, exonEnds &#39;</span> \
+            <span class="sa">f</span><span class="s1">&#39;FROM refGene WHERE name=&quot;</span><span class="si">{</span><span class="n">nm_number</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+
+    <span class="n">query_results</span> <span class="o">=</span> <span class="n">ucsc_query</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">query_results</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Could not find gene information for </span><span class="si">{</span><span class="n">nm_number</span><span class="si">}</span><span class="s1"> in RefSeq database&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">query_results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">query_results</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">entry</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">query_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">gene</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nm_number</span><span class="o">=</span><span class="n">nm_number</span><span class="p">,</span>
+                <span class="n">chromosome</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">strand</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="n">exoncount</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                <span class="n">cds_start</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                <span class="n">cds_end</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                <span class="n">exon_starts</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="p">],</span>
+                <span class="n">exon_ends</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="p">]</span>
+                <span class="p">)</span>
+    <span class="k">return</span> <span class="n">gene</span></div>
+
+
+<div class="viewcode-block" id="calculate_targets"><a class="viewcode-back" href="../../primertool.html#primertool.functions.calculate_targets">[docs]</a><span class="k">def</span> <span class="nf">calculate_targets</span><span class="p">(</span><span class="n">target_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target_end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">primer_bases</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Defining the sequence start and end positions.</span>
+
+<span class="sd">    Primer bases are the number of bases to each side of the target sequence in which primer3 looks for a possible</span>
+<span class="sd">    primer. These are added to sequence start and end respectively to calculate the sequence start and end positions.</span>
+<span class="sd">    The size range is a list with the length of the target sequence and target sequence with the primer bases added.</span>
+<span class="sd">    Primer3 should design primers in this size range.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_start (int): Start position of the target sequence</span>
+<span class="sd">        target_end (int): End position of the target sequence</span>
+<span class="sd">        primer_bases (int): Number of bases to each side of the target sequence in which primer3 looks for a possible primer</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary containing the sequence start and end positions, the number of bases to each side of the target</span>
+<span class="sd">        sequence in which primer3 looks for a possible primer, the length of the target sequence, and the size range for</span>
+<span class="sd">        primer3.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">seq_start</span> <span class="o">=</span> <span class="n">target_start</span> <span class="o">-</span> <span class="n">primer_bases</span>
+    <span class="n">seq_end</span> <span class="o">=</span> <span class="n">target_end</span> <span class="o">+</span> <span class="n">primer_bases</span>
+    <span class="n">target_base</span> <span class="o">=</span> <span class="n">primer_bases</span>
+    <span class="n">target_length</span> <span class="o">=</span> <span class="n">target_end</span> <span class="o">-</span> <span class="n">target_start</span>
+    <span class="n">size_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_length</span><span class="p">,</span> <span class="n">target_length</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">primer_bases</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span>
+
+    <span class="n">target_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">target_start</span><span class="o">=</span><span class="n">target_start</span><span class="p">,</span>
+                       <span class="n">target_end</span><span class="o">=</span><span class="n">target_end</span><span class="p">,</span>
+                       <span class="n">seq_start</span><span class="o">=</span><span class="n">seq_start</span><span class="p">,</span>
+                       <span class="n">seq_end</span><span class="o">=</span><span class="n">seq_end</span><span class="p">,</span>
+                       <span class="n">target_base</span><span class="o">=</span><span class="n">target_base</span><span class="p">,</span>
+                       <span class="n">target_length</span><span class="o">=</span><span class="n">target_length</span><span class="p">,</span>
+                       <span class="n">size_range</span><span class="o">=</span><span class="n">size_range</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">target_info</span></div>
+
+
+<div class="viewcode-block" id="mask_snps"><a class="viewcode-back" href="../../primertool.html#primertool.functions.mask_snps">[docs]</a><span class="k">def</span> <span class="nf">mask_snps</span><span class="p">(</span><span class="n">genome</span><span class="p">:</span> <span class="n">genomepy</span><span class="o">.</span><span class="n">Genome</span><span class="p">,</span> <span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seq_end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mask common SNP positions with an N in the sequence.</span>
+
+<span class="sd">    Using the get_snps() function to retrieve common SNPs in the given sequence from UCSC. Extract the genomic sequence</span>
+<span class="sd">    between the given positions via genomepy and replace the bases at common SNP positions with an N.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        genome (genomepy.Genome): genomepy genome object</span>
+<span class="sd">        chromosome (str): chromosome name as string (e.g. &#39;chr1&#39;)</span>
+<span class="sd">        seq_start (int): start position of the sequence</span>
+<span class="sd">        seq_end (int): end position of the sequence</span>
+<span class="sd">        genome_assembly (str): genome assembly as string (e.g. &#39;hg38&#39;)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The sequence with common SNPs masked as a string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">genome</span><span class="p">[</span><span class="n">chromosome</span><span class="p">][</span><span class="n">seq_start</span><span class="p">:</span><span class="n">seq_end</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="n">snps</span> <span class="o">=</span> <span class="n">get_snps</span><span class="p">(</span><span class="n">chromosome</span><span class="p">,</span> <span class="n">seq_start</span><span class="p">,</span> <span class="n">seq_end</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">snps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">seq_snps</span> <span class="o">=</span> <span class="n">sequence</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">snp_seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">snps</span><span class="p">:</span>
+            <span class="n">snp_seq</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>
+        <span class="n">seq_snps</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">snp_seq</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seq_snps</span></div>
+
+
+<div class="viewcode-block" id="get_snps"><a class="viewcode-back" href="../../primertool.html#primertool.functions.get_snps">[docs]</a><span class="k">def</span> <span class="nf">get_snps</span><span class="p">(</span><span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seq_end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve common SNPs from the UCSC database.</span>
+
+<span class="sd">    Query the UCSC database with the chromosome and position data to find common SNPs in the sequence, which need to</span>
+<span class="sd">    be masked. SNPs are returned as list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        chromosome (str): chromosome name as string (e.g. &#39;chr1&#39;)</span>
+<span class="sd">        seq_start (int): start position of the sequence</span>
+<span class="sd">        seq_end (int): end position of the sequence</span>
+<span class="sd">        genome_assembly (str): genome assembly as string (e.g. &#39;hg38&#39;)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        List of common SNPs in the sequence</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">snpquery</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT chromStart &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;FROM snp150Common &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;WHERE chrom=&#39;</span><span class="si">{</span><span class="n">chromosome</span><span class="si">}</span><span class="s2">&#39; AND class=&#39;single&#39; AND chromEnd BETWEEN&#39;</span><span class="si">{</span><span class="n">seq_start</span><span class="si">}</span><span class="s2">&#39;AND&#39;</span><span class="si">{</span><span class="n">seq_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">snp</span> <span class="o">=</span> <span class="n">ucsc_query</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">snpquery</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">snps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">snp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">snp</span><span class="p">):</span>
+            <span class="n">snps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_end</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">snp</span><span class="p">[</span><span class="n">idx</span><span class="p">])[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">snps</span></div>
+
+
+<div class="viewcode-block" id="mutalyzer_error_handler"><a class="viewcode-back" href="../../primertool.html#primertool.functions.mutalyzer_error_handler">[docs]</a><span class="k">def</span> <span class="nf">mutalyzer_error_handler</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks for errors in the mutalyzer response and raises an exception if there is an error.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        response (dict): The response from the mutalyzer API</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        PrimertoolInputError: If there is an error in the response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;message&#39;</span> <span class="ow">in</span> <span class="n">response</span> <span class="ow">and</span> <span class="s1">&#39;custom&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="c1"># If the entries at the top level of the response are message and custom, there is a problem with the input</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Handle infos and errors</span>
+        <span class="k">if</span> <span class="s1">&#39;infos&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;infos&#39;</span><span class="p">]:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;details&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># print all infos</span>
+        <span class="k">if</span> <span class="s1">&#39;errors&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">]:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">error</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">error</span><span class="p">[</span><span class="s2">&quot;details&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># print all errors</span>
+
+            <span class="n">error_code</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;code&#39;</span><span class="p">]</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;details&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">error_code</span> <span class="o">==</span> <span class="s1">&#39;EPARSE&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;There is an error in the given mutation&#39;</span><span class="p">,</span> <span class="n">error_code</span><span class="p">,</span>
+                                                      <span class="n">error_message</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">error_code</span> <span class="o">==</span> <span class="s1">&#39;ERETR&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;The given NM number has an error and could not be found&#39;</span><span class="p">,</span>
+                                                      <span class="n">error_code</span><span class="p">,</span>
+                                                      <span class="n">error_message</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">error_code</span> <span class="o">==</span> <span class="s1">&#39;ENOINTRON&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;The given NM number has an error and could not be found&#39;</span><span class="p">,</span>
+                                                      <span class="n">error_code</span><span class="p">,</span>
+                                                      <span class="n">error_message</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">error_code</span> <span class="o">==</span> <span class="s1">&#39;ESYNTAXUC&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">error_code</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;There was a problem with the input. &#39;</span><span class="p">,</span> <span class="n">error_code</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="parse_mutation"><a class="viewcode-back" href="../../primertool.html#primertool.functions.parse_mutation">[docs]</a><span class="k">def</span> <span class="nf">parse_mutation</span><span class="p">(</span><span class="n">mutation</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hgvs</span><span class="o">.</span><span class="n">sequencevariant</span><span class="o">.</span><span class="n">SequenceVariant</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse mutation with hgvs parser.</span>
+
+<span class="sd">    Gene names in brackets are removed from the variant (eg: eg: NM_003165.6(STXBP1):c.1702G&gt;A).</span>
+<span class="sd">    The mutation is then parsed using hgvs.parser and a hgvs tree object (see</span>
+<span class="sd">    https://hgvs.readthedocs.io/en/stable/key_concepts.html#variant-object-representation) is returned.</span>
+<span class="sd">    Parses coding and genomic variants.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mutation (str): mutation in HGVS nomenclature</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        PrimertoolInputError: If there is an error in the mutation nomenclature</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        hgvs.sequencevariant.SequenceVariant</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mutation</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\([^)]*\)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mutation</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hp</span> <span class="o">=</span> <span class="n">hgvs</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">Parser</span><span class="p">()</span>
+        <span class="n">hgvs_mutation</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">parse_hgvs_variant</span><span class="p">(</span><span class="n">mutation</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">hgvs</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HGVSParseError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Could not parse the input. There is a problem with the hgvs nomenclature: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hgvs_mutation</span></div>
+
+
+<div class="viewcode-block" id="split_nm"><a class="viewcode-back" href="../../primertool.html#primertool.functions.split_nm">[docs]</a><span class="k">def</span> <span class="nf">split_nm</span><span class="p">(</span><span class="n">nm_number</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Split variant.ac from hgvs object into transcript and version number</span>
+
+<span class="sd">    If the transcript number includes a version number, split at &#39;.&#39;. If not, set the version number to 1.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nm_number (str): NM number (e.g. NM_000451.3)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple of transcript and version number</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nm_split</span> <span class="o">=</span> <span class="n">nm_number</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">nm_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nm_split</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nm_split</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">transcript</span><span class="p">,</span> <span class="n">version</span></div>
+
+
+<div class="viewcode-block" id="find_sequence_positions"><a class="viewcode-back" href="../../primertool.html#primertool.functions.find_sequence_positions">[docs]</a><span class="k">def</span> <span class="nf">find_sequence_positions</span><span class="p">(</span><span class="n">exon_starts</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exon_ends</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exon_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">strand</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">mutation_position</span><span class="p">:</span> <span class="n">hgvs</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">Interval</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Establish if variant position is in an exon.</span>
+
+<span class="sd">    The hgvs.parser object has the start and end position of the variant (in case of an indel rather than a SNP). Using</span>
+<span class="sd">    these positions and the lists of exon starts and ends, determine if the variant is located in an exon.</span>
+
+<span class="sd">    The information is returned as a dictionary. If the gene is based on the - strand, the exon number needs to be</span>
+<span class="sd">    inverted.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        exon_starts (list): List of exon start positions</span>
+<span class="sd">        exon_ends (list): List of exon end positions</span>
+<span class="sd">        exon_count (int): Number of exons</span>
+<span class="sd">        strand (str): Strand of the gene (&#39;+&#39; or &#39;-&#39;)</span>
+<span class="sd">        mutation_position (hgvs.location.Interval): Start and end position of the variant</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary containing the exon number, start and end position of the variant, the length of the variant, and a</span>
+<span class="sd">        boolean indicating if the variant is in an exon</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mut_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mutation_position</span><span class="o">.</span><span class="n">start</span><span class="p">))</span>
+    <span class="n">mut_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mutation_position</span><span class="o">.</span><span class="n">end</span><span class="p">))</span>
+    <span class="n">exon_number</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">exon_len</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">is_in_exon</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">exon_count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">exon_starts</span><span class="p">[</span><span class="n">exon</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">mut_start</span> <span class="ow">and</span> <span class="n">mut_end</span> <span class="o">&lt;=</span> <span class="n">exon_ends</span><span class="p">[</span><span class="n">exon</span><span class="p">]:</span>
+            <span class="n">is_in_exon</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">exon_len</span> <span class="o">=</span> <span class="n">exon_ends</span><span class="p">[</span><span class="n">exon</span><span class="p">]</span> <span class="o">-</span> <span class="n">exon_starts</span><span class="p">[</span><span class="n">exon</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+                <span class="n">exon_number</span> <span class="o">=</span> <span class="n">exon_count</span> <span class="o">-</span> <span class="n">exon</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">exon_number</span> <span class="o">=</span> <span class="n">exon</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">exon_number</span><span class="o">=</span><span class="n">exon_number</span><span class="p">,</span> <span class="n">mut_start</span><span class="o">=</span><span class="n">mut_start</span><span class="p">,</span> <span class="n">mut_end</span><span class="o">=</span><span class="n">mut_end</span><span class="p">,</span> <span class="n">mut_length</span><span class="o">=</span><span class="n">mut_end</span> <span class="o">-</span> <span class="n">mut_start</span><span class="p">,</span>
+                <span class="n">is_in_exon</span><span class="o">=</span><span class="n">is_in_exon</span><span class="p">,</span> <span class="n">exon_len</span><span class="o">=</span><span class="n">exon_len</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="filter_unique_primers"><a class="viewcode-back" href="../../primertool.html#primertool.functions.filter_unique_primers">[docs]</a><span class="k">def</span> <span class="nf">filter_unique_primers</span><span class="p">(</span><span class="n">primer3_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check primer uniqueness and remove all primers with multiple binding sites, so that only the uniquely binding</span>
+<span class="sd">    ones remain.</span>
+<span class="sd">    Also returns a flag if all primers were invalid (i.e. not uniquely binding), but only if there was at least one</span>
+<span class="sd">    primer to begin with.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        primer3_dict (dict): Primer3 output dictionary</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple of the filtered primer3_dict and a flag indicating if all primers were invalid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pre_filter_primer_count</span> <span class="o">=</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]:</span>  <span class="c1"># iterate over all generated primers</span>
+        <span class="n">forward_primer</span> <span class="o">=</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PRIMER_LEFT_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_SEQUENCE&#39;</span><span class="p">]</span>
+        <span class="n">reverse_primer</span> <span class="o">=</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PRIMER_RIGHT_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_SEQUENCE&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">InSilicoPCR</span><span class="p">(</span><span class="n">forward_primer</span><span class="p">,</span> <span class="n">reverse_primer</span><span class="p">)</span><span class="o">.</span><span class="n">is_uniquely_binding</span><span class="p">():</span>
+            <span class="c1"># delete primerpair with index idx from primers</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Purging primer pair&quot;</span><span class="p">)</span>
+            <span class="n">primer3_dict</span> <span class="o">=</span> <span class="n">purge_primer_pair</span><span class="p">(</span><span class="n">primer3_dict</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+            <span class="c1"># don&#39;t increment idx because primer idx was removed and replaced by primer idx+1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">post_filter_primer_count</span> <span class="o">=</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]</span>
+
+    <span class="c1"># If &gt;0 primers were found, but all were invalid (i.e. not uniquely binding), set flag</span>
+    <span class="n">all_primers_invalid_flag</span> <span class="o">=</span> <span class="n">pre_filter_primer_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">post_filter_primer_count</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">primer3_dict</span><span class="p">,</span> <span class="n">all_primers_invalid_flag</span></div>
+
+
+<div class="viewcode-block" id="purge_primer_pair"><a class="viewcode-back" href="../../primertool.html#primertool.functions.purge_primer_pair">[docs]</a><span class="k">def</span> <span class="nf">purge_primer_pair</span><span class="p">(</span><span class="n">primer3_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes primer pair of given index from primer3_dict and updates the dictionary so that the remaining data stays</span>
+<span class="sd">    consistent. (I.e. reset indices so enumeration does not have gaps and update)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        primer3_dict (dict): Primer3 output dictionary</span>
+<span class="sd">        index (int): Index of primer pair to remove</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Primer3 output dictionary with the primer pair of the given index removed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Remove primerpair with given index (remove every item from the dict where the index appears in the key)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">primer3_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;.*</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">.*&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+            <span class="k">del</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="c1"># Reduce index of all primers with larger index than the one we removed</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">primer3_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># if the corresponding index is found</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="n">key</span><span class="p">):</span>
+                <span class="c1"># Rename keys</span>
+                <span class="n">new_key</span> <span class="o">=</span> <span class="n">reduce_numbers_in_string</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="n">primer3_dict</span><span class="p">[</span><span class="n">new_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">primer3_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="c1"># Count down number of returned primers</span>
+    <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_LEFT_NUM_RETURNED&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_RIGHT_NUM_RETURNED&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">primer3_dict</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">primer3_dict</span></div>
+
+
+<div class="viewcode-block" id="reduce_numbers_in_string"><a class="viewcode-back" href="../../primertool.html#primertool.functions.reduce_numbers_in_string">[docs]</a><span class="k">def</span> <span class="nf">reduce_numbers_in_string</span><span class="p">(</span><span class="n">input_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Takes an input string and reduces any (positive) integer in it by one.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_string (str): String to reduce numbers in</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        String with all numbers reduced by one</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Define a regex pattern to match numbers</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d+&quot;</span>
+
+    <span class="c1"># Find all occurrences of the pattern in the input string</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">input_string</span><span class="p">)</span>
+
+    <span class="c1"># Decrement each matched number by 1</span>
+    <span class="n">decremented_values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">]</span>
+
+    <span class="c1"># Replace the original numbers with the decremented values</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">match</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">matches</span><span class="p">):</span>
+        <span class="n">input_string</span> <span class="o">=</span> <span class="n">input_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">decremented_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">input_string</span></div>
+
+
+<div class="viewcode-block" id="correct_intronic_variant"><a class="viewcode-back" href="../../primertool.html#primertool.functions.correct_intronic_variant">[docs]</a><span class="k">def</span> <span class="nf">correct_intronic_variant</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolIntronicPositionError</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle the case where the given variant is intronic. If the offset is &lt;= 5, drop the offset. Otherwise,</span>
+<span class="sd">    raise an exception.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        response (dict): The response from the mutalyzer API</span>
+<span class="sd">        variant (str): The variant to correct</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        PrimertoolIntronicPositionError: If the offset is too large to be corrected automatically (&gt;)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The corrected variant</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;corrected_model&#39;</span><span class="p">][</span><span class="s1">&#39;variants&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;offset&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="c1"># remove offset from variant</span>
+        <span class="n">variant</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\+\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+
+        <span class="c1"># correct possible sequence mismatch</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://mutalyzer.nl/api/normalize/</span><span class="si">{</span><span class="n">variant</span><span class="si">}</span><span class="s1">?only_variants=false&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ESEQUENCEMISMATCH&#39;</span><span class="p">:</span>
+            <span class="c1"># find the correct base (A, G, C, T)</span>
+            <span class="n">replacement_letter</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;found ([AGCT]) instead&#39;</span><span class="p">,</span>
+                                           <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;details&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># The replacement of the substituent base is only done to avoid the A&gt;A case, which leads to errors later on</span>
+            <span class="n">base_partner</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">}</span>
+
+            <span class="c1"># replace the char right before &#39;&gt;&#39; in variant string with the replacement letter</span>
+            <span class="n">variant</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([A-Z])&gt;([A-Z])&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">replacement_letter</span><span class="si">}</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">base_partner</span><span class="p">[</span><span class="n">replacement_letter</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">variant</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolIntronicPositionError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;The given variant is intronic and the offset is too large to be corrected automatically. Please use the &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;genomic position instead. &quot;</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Simon Michau, Daniela Dey, Carlos Classen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

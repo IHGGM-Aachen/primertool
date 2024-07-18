@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primertool.primertool &mdash; primertool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=af2ce170"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            primertool
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html">How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#general-requirements-for-primers">General requirements for primers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#variantprimergenerator">VariantPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#exonprimergenerator">ExonPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#geneprimergenerator">GenePrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomicpositionprimergenerator">GenomicPositionPrimerGenerator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../information.html#resources-used">Resources used</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#primer3">Primer3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#genomepy">genomepy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../information.html#hgvs-parser">hgvs.parser</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">primertool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../primertool.html">primertool package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.exceptions">primertool.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.InSilicoPCRRequestError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRRequestError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolError"><code class="docutils literal notranslate"><span class="pre">PrimertoolError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolExonLengthError"><code class="docutils literal notranslate"><span class="pre">PrimertoolExonLengthError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolGenomeError"><code class="docutils literal notranslate"><span class="pre">PrimertoolGenomeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolInputError"><code class="docutils literal notranslate"><span class="pre">PrimertoolInputError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolIntronicPositionError"><code class="docutils literal notranslate"><span class="pre">PrimertoolIntronicPositionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolMutalyzerError"><code class="docutils literal notranslate"><span class="pre">PrimertoolMutalyzerError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.exceptions.PrimertoolNoPrimerFoundError"><code class="docutils literal notranslate"><span class="pre">PrimertoolNoPrimerFoundError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.functions">primertool.functions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.calculate_targets"><code class="docutils literal notranslate"><span class="pre">calculate_targets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.correct_intronic_variant"><code class="docutils literal notranslate"><span class="pre">correct_intronic_variant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.filter_unique_primers"><code class="docutils literal notranslate"><span class="pre">filter_unique_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.find_sequence_positions"><code class="docutils literal notranslate"><span class="pre">find_sequence_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_gene_information"><code class="docutils literal notranslate"><span class="pre">get_gene_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.get_snps"><code class="docutils literal notranslate"><span class="pre">get_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mask_snps"><code class="docutils literal notranslate"><span class="pre">mask_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.mutalyzer_error_handler"><code class="docutils literal notranslate"><span class="pre">mutalyzer_error_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.parse_mutation"><code class="docutils literal notranslate"><span class="pre">parse_mutation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.purge_primer_pair"><code class="docutils literal notranslate"><span class="pre">purge_primer_pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.reduce_numbers_in_string"><code class="docutils literal notranslate"><span class="pre">reduce_numbers_in_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.remove_whitespaces"><code class="docutils literal notranslate"><span class="pre">remove_whitespaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.functions.split_nm"><code class="docutils literal notranslate"><span class="pre">split_nm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.insilicopcr">primertool.insilicopcr module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.insilicopcr.InSilicoPCR"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.logger">primertool.logger module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.logger.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.primertool">primertool.primertool module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.ExonPrimerPair"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenePrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerGenerator"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.PrimerPair"><code class="docutils literal notranslate"><span class="pre">PrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.ucsc_database">primertool.ucsc_database module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.ucsc_database.query"><code class="docutils literal notranslate"><span class="pre">query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool.unittest">primertool.unittest module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../primertool.html#primertool.unittest.PrimertoolTest"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../primertool.html#module-primertool">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../streamlit.html">streamlit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-custom-components">streamlit_custom_components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.generate_primers"><code class="docutils literal notranslate"><span class="pre">generate_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../streamlit.html#streamlit_custom_components.kuerzel_check"><code class="docutils literal notranslate"><span class="pre">kuerzel_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-help">streamlit_help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-main">streamlit_main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../streamlit.html#streamlit-primertool">streamlit_primertool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup and Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#streamlit">Streamlit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup.html#log-access">Log access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mysql-setup.html">Local UCSC database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#download-database-tables">Download database tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-and-populate-local-database">Create and populate local database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mysql-setup.html#create-new-user-to-access-the-database">Create new user to access the database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment-firewall.html">Deployment using proxy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">primertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">primertool.primertool</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for primertool.primertool</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains the classes for generating primers for a given genomic position, gene, exon or variant.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">genomepy</span>
+<span class="kn">import</span> <span class="nn">genomepy.exceptions</span>
+<span class="kn">import</span> <span class="nn">primer3</span>
+<span class="kn">import</span> <span class="nn">hgvs.sequencevariant</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">functions</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">.functions</span> <span class="kn">import</span> <span class="n">remove_whitespaces</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">init_logger</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="PrimerPair"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerPair">[docs]</a><span class="k">class</span> <span class="nc">PrimerPair</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for storing and handling primer pairs.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        primer_info (dict): Primer3 output containing the information about the primer pairs.</span>
+<span class="sd">        mt (float): Melting temperature of the primer pair.</span>
+<span class="sd">        bp (int): Base pairs of the primer pair.</span>
+<span class="sd">        chromosome (str): Chromosome of the primer pair.</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair.</span>
+<span class="sd">        orderprimer_forwards (str): Forward primer in Gene-E(Exonnumber)F;Sequence format for ordering.</span>
+<span class="sd">        orderprimer_reverse (str): Reverse primer in Gene-E(Exonnumber)R;Sequence format for ordering.</span>
+<span class="sd">        primer_forwards (str): Forward primer sequence.</span>
+<span class="sd">        primer_reverse (str): Reverse primer sequence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primer_info</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span> <span class="o">=</span> <span class="n">primer_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># primer3 output</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s1">&#39;PRIMER_RIGHT_0_TM&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s1">&#39;PRIMER_LEFT_0_TM&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_0_PRODUCT_SIZE&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_forwards</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_reverse</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primer_forwards</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primer_reverse</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="ExonPrimerPair"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerPair">[docs]</a><span class="k">class</span> <span class="nc">ExonPrimerPair</span><span class="p">(</span><span class="n">PrimerPair</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for storing and handling primer pairs for a given exon.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        gene_info (dict): Gene information</span>
+<span class="sd">        gene_name (str): Name of the gene (e.g. BRCA1)</span>
+<span class="sd">        chromosome (str): Chromosome of the gene (e.g. chr1)</span>
+<span class="sd">        nm_number (str): NM number of the gene (e.g. NM_000451)</span>
+<span class="sd">        strand (str): Strand of the gene (either &#39;+&#39; or &#39;-&#39;)</span>
+<span class="sd">        exon_number (int): Exon number</span>
+<span class="sd">        orderprimer_forwards (str): Forward primer in Gene-E(Exonnumber)F;Sequence format for ordering.</span>
+<span class="sd">        orderprimer_reverse (str): Reverse primer in Gene-E(Exonnumber)R;Sequence format for ordering.</span>
+<span class="sd">        primer_forwards (str): Forward primer sequence.</span>
+<span class="sd">        primer_reverse (str): Reverse primer sequence.</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gene_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">primer_info</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exon_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">primer_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span> <span class="o">=</span> <span class="n">gene_info</span>  <span class="c1"># Gene information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gene_name</span> <span class="o">=</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;chromosome&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span> <span class="o">=</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;nm_number&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strand</span> <span class="o">=</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;strand&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span> <span class="o">=</span> <span class="n">exon_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_reverse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_reverse</span> \
+            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_order_primers</span><span class="p">()</span>
+
+        <span class="c1"># create pandas DataFrame for order table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_order_table</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ExonPrimerPair.get_order_primers"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerPair.get_order_primers">[docs]</a>    <span class="k">def</span> <span class="nf">get_order_primers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the forward and reverse primers in Gene-E(Exonnumber)F;Sequence and Gene-E(Exonnumber)R;Sequence</span>
+<span class="sd">        format for ordering.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of orderprimer forwards, orderprimer reverse, forwards primer and reverse primer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">exon_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">orderprimer_forwards</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_name</span><span class="si">}</span><span class="s1">-E</span><span class="si">{</span><span class="n">exon_str</span><span class="si">}</span><span class="s1">F;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">orderprimer_reverse</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_name</span><span class="si">}</span><span class="s1">-E</span><span class="si">{</span><span class="n">exon_str</span><span class="si">}</span><span class="s1">R;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">primer_forwards</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span>
+            <span class="n">primer_reverse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">orderprimer_forwards</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_name</span><span class="si">}</span><span class="s1">-E</span><span class="si">{</span><span class="n">exon_str</span><span class="si">}</span><span class="s1">F;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">orderprimer_reverse</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_name</span><span class="si">}</span><span class="s1">-E</span><span class="si">{</span><span class="n">exon_str</span><span class="si">}</span><span class="s1">R;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">primer_forwards</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span>
+            <span class="n">primer_reverse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="n">orderprimer_reverse</span><span class="p">,</span> <span class="n">primer_forwards</span><span class="p">,</span> <span class="n">primer_reverse</span></div>
+
+<div class="viewcode-block" id="ExonPrimerPair.make_order_table"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerPair.make_order_table">[docs]</a>    <span class="k">def</span> <span class="nf">make_order_table</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a pandas DataFrame for the order table.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Pandas DataFrame containing the order information for the primer pair.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+        <span class="n">df_order_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">date</span><span class="p">],</span>
+            <span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s1">&#39;primer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_reverse</span><span class="p">],</span>
+            <span class="s1">&#39;gene&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span>
+            <span class="s1">&#39;nm_number&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">],</span>
+            <span class="s1">&#39;mt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">],</span>
+            <span class="s1">&#39;bp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bp</span><span class="p">]</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="n">df_order_table</span></div></div>
+
+
+<div class="viewcode-block" id="GenomicPositionPrimerPair"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair">[docs]</a><span class="k">class</span> <span class="nc">GenomicPositionPrimerPair</span><span class="p">(</span><span class="n">PrimerPair</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for storing and handling primer pairs for a given genomic position.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        chromosome (str): Chromosome of the genomic position</span>
+<span class="sd">        start (int): Start position of the genomic position</span>
+<span class="sd">        end (int): End position of the genomic position</span>
+<span class="sd">        orderprimer_forwards (str): Forward primer in ChrStartF;Sequence format for ordering.</span>
+<span class="sd">        orderprimer_reverse (str): Reverse primer in ChrStartR;Sequence format for ordering.</span>
+<span class="sd">        primer_forwards (str): Forward primer sequence.</span>
+<span class="sd">        primer_reverse (str): Reverse primer sequence.</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primer_info</span><span class="p">,</span> <span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">primer_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="n">chromosome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_reverse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_reverse</span> \
+            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_order_primers</span><span class="p">()</span>
+
+        <span class="c1"># create pandas DataFrame for order table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_order_table</span><span class="p">()</span>
+
+<div class="viewcode-block" id="GenomicPositionPrimerPair.get_order_primers"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair.get_order_primers">[docs]</a>    <span class="k">def</span> <span class="nf">get_order_primers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the forward and reverse primers in ChrStartF;Sequence and ChrStartR;Sequence format for ordering.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of orderprimer forwards, orderprimer reverse, forwards primer and reverse primer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">orderprimer_forwards</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s1">F;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">orderprimer_reverse</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="si">}</span><span class="s1">R;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">primer_forwards</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_LEFT_0_SEQUENCE&quot;</span><span class="p">]</span>
+        <span class="n">primer_reverse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primer_info</span><span class="p">[</span><span class="s2">&quot;PRIMER_RIGHT_0_SEQUENCE&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="n">orderprimer_reverse</span><span class="p">,</span> <span class="n">primer_forwards</span><span class="p">,</span> <span class="n">primer_reverse</span></div>
+
+<div class="viewcode-block" id="GenomicPositionPrimerPair.make_order_table"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerPair.make_order_table">[docs]</a>    <span class="k">def</span> <span class="nf">make_order_table</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a pandas DataFrame for the order table.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Pandas DataFrame containing the order information for the primer pair.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+        <span class="n">df_order_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">date</span><span class="p">],</span>
+            <span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s1">&#39;primer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_forwards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderprimer_reverse</span><span class="p">],</span>
+            <span class="s1">&#39;gene&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s1">&#39;nm_number&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s1">&#39;mt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mt</span><span class="p">],</span>
+            <span class="s1">&#39;bp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bp</span><span class="p">]</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="n">df_order_table</span></div></div>
+
+
+<div class="viewcode-block" id="PrimerGenerator"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator">[docs]</a><span class="k">class</span> <span class="nc">PrimerGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for generating primers for a given genomic position, gene, exon or variant.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        genome_assembly (str): Genome assembly (e.g. hg38)</span>
+<span class="sd">        kuerzel (str): Kuerzel of the person who is ordering the primers</span>
+<span class="sd">        genome_dir (str): Directory containing the genome files</span>
+<span class="sd">        genome (genomepy.Genome): Genome object</span>
+<span class="sd">        max_insert (int): Maximum insert size for the primer (default: 800)</span>
+<span class="sd">        min_insert (int): Minimum insert size for the primer (default: 200)</span>
+<span class="sd">        dist_exon_borders (int): Distance to the exon borders (default: 40)</span>
+<span class="sd">        chromosome (str): Chromosome of the primer pair</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@remove_whitespaces</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_genome_assembly</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">genome_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;genomes&#39;</span><span class="p">)</span>
+
+        <span class="c1"># check if genome directory exists and try to create it if not</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genome</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_genome</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span> <span class="o">=</span> <span class="n">kuerzel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span> <span class="o">=</span> <span class="mi">800</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_insert</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist_exon_borders</span> <span class="o">=</span> <span class="mi">40</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># if chromosome is known later from gene information</span>
+
+<div class="viewcode-block" id="PrimerGenerator.check_genome_assembly"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator.check_genome_assembly">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">check_genome_assembly</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the given genome assembly is valid.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            genome_assembly (str): Genome assembly (e.g. hg38)</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given genome assembly is invalid</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Genome assembly if valid or raises an exception</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">genome_assembly</span> <span class="o">=</span> <span class="n">genome_assembly</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">genome_assembly</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;hg38&#39;</span><span class="p">,</span> <span class="s1">&#39;hg19&#39;</span><span class="p">]:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Given genome assembly </span><span class="si">{</span><span class="n">genome_assembly</span><span class="si">}</span><span class="s1"> is invalid. Only hg19 and hg38 are accepted.&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;### USER INPUT: </span><span class="si">{</span><span class="n">genome_assembly</span><span class="si">}</span><span class="s1"> ### </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">genome_assembly</span></div>
+
+<div class="viewcode-block" id="PrimerGenerator.fetch_genome"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator.fetch_genome">[docs]</a>    <span class="k">def</span> <span class="nf">fetch_genome</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">genomepy</span><span class="o">.</span><span class="n">Genome</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolGenomeError</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the given genome assembly is available in the genome directory. If not, download it from UCSC.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the genome assembly is invalid</span>
+<span class="sd">            PrimertoolGenomeError: If the genome assembly is not available in the genome directory and cannot be</span>
+<span class="sd">                downloaded</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Genome object (genomepy.Genome)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">genomepy</span><span class="o">.</span><span class="n">Genome</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">genomes_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_dir</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Downloading genome </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="si">}</span><span class="s1"> from UCSC&#39;</span><span class="p">)</span>
+                <span class="n">genomepy</span><span class="o">.</span><span class="n">install_genome</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="s2">&quot;UCSC&quot;</span><span class="p">,</span> <span class="n">genomes_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_dir</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">genomepy</span><span class="o">.</span><span class="n">Genome</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">genomes_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_dir</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">genomepy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">GenomeDownloadError</span> <span class="k">as</span> <span class="n">error_msg</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot download given reference </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="si">}</span><span class="s1"> from UCSC. &#39;</span>
+                       <span class="sa">f</span><span class="s1">&#39;Please check your input: </span><span class="si">{</span><span class="n">error_msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;### USER INPUT: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="si">}</span><span class="s1"> ### </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolGenomeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PrimerGenerator.check_insert_size"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator.check_insert_size">[docs]</a>    <span class="k">def</span> <span class="nf">check_insert_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if insert size is between min/max insert size.</span>
+
+<span class="sd">        The insert size for the primer needs to be between min and max insert size, given the sequencing method.</span>
+<span class="sd">        If the insert size is smaller, the difference to the min insert size is added/subtracted from start/end</span>
+<span class="sd">        position.</span>
+<span class="sd">        If the insert size is bigger than the max insert size, the range is split into multiple chunks,</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start (int): Start position</span>
+<span class="sd">            end (int): End position</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of positions for primer generation (list)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">insert_len</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">insert_len</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_insert</span><span class="p">:</span>
+            <span class="n">exon_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_insert</span> <span class="o">-</span> <span class="n">insert_len</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">exon_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">end</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_insert</span> <span class="o">-</span> <span class="n">insert_len</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">exon_start</span><span class="p">,</span> <span class="n">exon_end</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">insert_len</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">insert_len</span> <span class="o">/</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">insert_len</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">)))</span>
+            <span class="n">lst</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+            <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">num</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">),</span> <span class="n">num</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+                <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_exon_borders</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">end</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_exon_borders</span>
+            <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">positions</span></div>
+
+<div class="viewcode-block" id="PrimerGenerator.iterate_positions"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator.iterate_positions">[docs]</a>    <span class="k">def</span> <span class="nf">iterate_positions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">positions</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate primers with the given positions.</span>
+
+<span class="sd">        If primer3 does not return a result, increase the sequence length in which primers can be generated.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            positions (list): List of positions for primer generation</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of primers (list)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sub_exon</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">positions</span><span class="p">):</span>
+            <span class="n">pos_start</span><span class="p">,</span> <span class="n">pos_end</span> <span class="o">=</span> <span class="n">sub_exon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sub_exon</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">primer_bases</span> <span class="o">=</span> <span class="mi">100</span>
+            <span class="n">primers_found</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">target_size</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">primers</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">primers_found</span> <span class="ow">and</span> <span class="n">target_size</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">:</span>
+                <span class="c1"># Design primers using primer3</span>
+                <span class="n">primers</span><span class="p">,</span> <span class="n">target_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">design_primer</span><span class="p">(</span><span class="n">pos_start</span><span class="p">,</span> <span class="n">pos_end</span><span class="p">,</span> <span class="n">primer_bases</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">target_size</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">:</span>
+                    <span class="n">primers</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Stopping search (target size &gt; max insert). No primers were found.&#39;</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+                <span class="c1"># if target_size is bigger than max_insert: split into chunks and try for primers again?</span>
+                <span class="c1"># new_positions = self.check_insert_size(pos_start + primer_bases, pos_end + primer_bases)</span>
+                <span class="c1"># primers = self.iterate_positions(new_positions, self.chromosome)</span>
+                <span class="c1"># logging.info(&#39;No primers found and target size größer max insert&#39;)</span>
+
+                <span class="c1"># Filter out all primer pairs that are not uniquely binding</span>
+                <span class="n">primers</span><span class="p">,</span> <span class="n">invalid_flag</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">filter_unique_primers</span><span class="p">(</span><span class="n">primers</span><span class="p">)</span>
+
+                <span class="c1"># If primers were found, but all of them are not unique</span>
+                <span class="k">if</span> <span class="n">invalid_flag</span><span class="p">:</span>
+                    <span class="c1"># update pos_start and pos_end for next iteration (a.k.a. widen the target)</span>
+                    <span class="c1"># note that the update size here is arbitrary</span>
+                    <span class="n">pos_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_start</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span>
+                    <span class="n">pos_end</span> <span class="o">=</span> <span class="n">pos_end</span> <span class="o">+</span> <span class="mi">100</span>
+                    <span class="c1"># reset primer_bases to init value</span>
+                    <span class="n">primer_bases</span> <span class="o">=</span> <span class="mi">0</span>
+
+                <span class="c1"># increment loop variables</span>
+                <span class="n">primer_bases</span> <span class="o">=</span> <span class="n">primer_bases</span> <span class="o">+</span> <span class="mi">100</span>
+                <span class="n">primers_found</span> <span class="o">=</span> <span class="n">primers</span><span class="p">[</span><span class="s1">&#39;PRIMER_PAIR_NUM_RETURNED&#39;</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">primers_found</span><span class="p">:</span>  <span class="c1"># log message if no primers were found</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No primers &lt;</span><span class="si">{</span><span class="n">primer_bases</span><span class="si">}</span><span class="s1"> primer bases around target position found yet, increasing &#39;</span>
+                           <span class="sa">f</span><span class="s1">&#39;allowed distance from target position to </span><span class="si">{</span><span class="n">primer_bases</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="si">}</span><span class="s1"> primer bases&#39;</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">primers_found</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Primers found for position </span><span class="si">{</span><span class="n">pos_start</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">pos_end</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">primers</span><span class="p">,</span> <span class="n">pos_start</span><span class="p">,</span> <span class="n">pos_end</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="si">}</span><span class="s1"> primers.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="PrimerGenerator.design_primer"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.PrimerGenerator.design_primer">[docs]</a>    <span class="k">def</span> <span class="nf">design_primer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">primer_bases</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Design a primer pair using primer3.</span>
+
+<span class="sd">        Firstly the targets are defined. Then the genomic sequence is retrieved and the most common SNPs are masked</span>
+<span class="sd">        in the sequence.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start (int): Start position</span>
+<span class="sd">            end (int): End position</span>
+<span class="sd">            primer_bases (int): Number of primer bases</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple of primer3 results as dict and insert size as int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">target_info</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">calculate_targets</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">primer_bases</span><span class="p">)</span>
+        <span class="n">genomic_sequence</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">mask_snps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="p">,</span> <span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;seq_start&#39;</span><span class="p">],</span>
+                                               <span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;seq_end&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">)</span>
+        <span class="n">seq_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">SEQUENCE_TEMPLATE</span><span class="o">=</span><span class="n">genomic_sequence</span><span class="p">,</span> <span class="n">SEQUENCE_TARGET</span><span class="o">=</span><span class="p">[</span><span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;target_base&#39;</span><span class="p">],</span>
+                                                                             <span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;target_length&#39;</span><span class="p">]])</span>
+        <span class="n">primer3_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">PRIMER_OPT_SIZE</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                              <span class="n">PRIMER_MIN_SIZE</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                              <span class="n">PRIMER_MAX_SIZE</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span>
+                              <span class="n">PRIMER_OPT_TM</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                              <span class="n">PRIMER_MIN_TM</span><span class="o">=</span><span class="mi">58</span><span class="p">,</span>
+                              <span class="n">PRIMER_MAX_TM</span><span class="o">=</span><span class="mi">62</span><span class="p">,</span>
+                              <span class="n">PRIMER_MAX_POLY_X</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                              <span class="n">GCCLAMP</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">primer3_config</span><span class="p">[</span><span class="s1">&#39;PRIMER_PRODUCT_SIZE_RANGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;size_range&#39;</span><span class="p">]</span>
+        <span class="n">primer_out</span> <span class="o">=</span> <span class="n">primer3</span><span class="o">.</span><span class="n">bindings</span><span class="o">.</span><span class="n">design_primers</span><span class="p">(</span><span class="n">seq_dict</span><span class="p">,</span> <span class="n">primer3_config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">primer_out</span><span class="p">,</span> <span class="n">target_info</span><span class="p">[</span><span class="s1">&#39;size_range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ExonPrimerGenerator"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator">[docs]</a><span class="k">class</span> <span class="nc">ExonPrimerGenerator</span><span class="p">(</span><span class="n">PrimerGenerator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for generating primers for a given exon.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        nm_number (str): NM number of the gene</span>
+<span class="sd">        exon_number (int): Exon number</span>
+<span class="sd">        variant_pos (dict): Dictionary containing the variant position</span>
+<span class="sd">        gene_info (dict): Gene information</span>
+<span class="sd">        chromosome (str): Chromosome of the gene</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@remove_whitespaces</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nm_number</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exon_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hg38&#39;</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">mutation_position</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span> <span class="o">=</span> <span class="n">nm_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span> <span class="o">=</span> <span class="n">exon_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variant_pos</span> <span class="o">=</span> <span class="n">mutation_position</span>
+
+        <span class="c1"># # # create primer # # #</span>
+        <span class="c1"># 1. Verify that the NM number is valid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_nm_number</span><span class="p">()</span>
+        <span class="c1"># 2. Get RefSeq Information about the gene</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">get_gene_information</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;chromosome&#39;</span><span class="p">]</span>
+        <span class="c1"># 3. Check if this exon number exists in the gene</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_exon</span><span class="p">()</span>
+        <span class="c1"># 4. Get exon boundaries</span>
+        <span class="n">exon_start</span><span class="p">,</span> <span class="n">exon_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_exon_boundaries</span><span class="p">()</span>
+        <span class="c1"># 5.</span>
+        <span class="n">exon_positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_insert_size</span><span class="p">(</span><span class="n">exon_start</span><span class="p">,</span> <span class="n">exon_end</span><span class="p">)</span>
+        <span class="c1"># 6. Iterate over positions and generate primers</span>
+        <span class="n">list_primers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterate_positions</span><span class="p">(</span><span class="n">exon_positions</span><span class="p">)</span>
+        <span class="c1"># 7. Create ordertable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ordertable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">,</span> <span class="n">list_primers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ExonPrimerGenerator.check_nm_number"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator.check_nm_number">[docs]</a>    <span class="k">def</span> <span class="nf">check_nm_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if nm_number is valid.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given NM number is invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;NM_&#39;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Given NM number </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="si">}</span><span class="s1"> is invalid. NM number should start with &quot;NM_&quot;&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;### USER INPUT: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="si">}</span><span class="s1"> ### </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ExonPrimerGenerator.check_exon"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator.check_exon">[docs]</a>    <span class="k">def</span> <span class="nf">check_exon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checking if exon exists in gene.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given exon number is larger than the number of exons in the gene</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of exons in gene </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s2">&quot;exoncount&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exoncount&#39;</span><span class="p">]:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The given exon number (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="si">}</span><span class="s1">) is larger than the number of exons in &#39;</span>
+                   <span class="sa">f</span><span class="s1">&#39;gene </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">. Please use the genomic position instead.&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ExonPrimerGenerator.get_exon_boundaries"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator.get_exon_boundaries">[docs]</a>    <span class="k">def</span> <span class="nf">get_exon_boundaries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get exon boundaries for the given exon number.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of exon start and exon end (tuple)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;strand&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_starts&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_ends&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_starts&#39;</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_starts&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_ends&#39;</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_starts&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span></div>
+
+<div class="viewcode-block" id="ExonPrimerGenerator.get_ordertable"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.ExonPrimerGenerator.get_ordertable">[docs]</a>    <span class="k">def</span> <span class="nf">get_ordertable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gene_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">list_primers</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get ordertable for exon primers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            gene_info (dict): Gene information</span>
+<span class="sd">            list_primers (list): List of primers</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolNoPrimerFoundError: If no primers were found for the given exon</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Pandas DataFrame containing the order information for the primer pair</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">exon_primer_pairs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">primers</span> <span class="ow">in</span> <span class="n">list_primers</span><span class="p">:</span>
+            <span class="n">exon_primer_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ExonPrimerPair</span><span class="p">(</span><span class="n">gene_info</span><span class="p">,</span> <span class="n">primers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">exon_primer_pairs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No primers found for exon </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">exon_number</span><span class="si">}</span><span class="s1"> in gene </span><span class="si">{</span><span class="n">gene_info</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">. Try using genomic &#39;</span>
+                   <span class="sa">f</span><span class="s1">&#39;position with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant_pos</span><span class="p">[</span><span class="s2">&quot;mut_start&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant_pos</span><span class="p">[</span><span class="s2">&quot;mut_end&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">.&#39;</span>
+                   <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolNoPrimerFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pair</span><span class="o">.</span><span class="n">ordertable</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">exon_primer_pairs</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;person&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span>
+        <span class="k">return</span> <span class="n">df</span></div></div>
+
+
+<div class="viewcode-block" id="GenomicPositionPrimerGenerator"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator">[docs]</a><span class="k">class</span> <span class="nc">GenomicPositionPrimerGenerator</span><span class="p">(</span><span class="n">PrimerGenerator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for generating primers for a given genomic position.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        chromosome (str): Chromosome of the genomic position</span>
+<span class="sd">        start (int): Start position of the genomic position</span>
+<span class="sd">        end (int): End position of the genomic position</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@remove_whitespaces</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hg38&#39;</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_chromosome</span><span class="p">(</span><span class="n">chromosome</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+
+        <span class="c1"># # # create primer # # #</span>
+        <span class="c1"># 1. Check if the given chromosome is valid</span>
+        <span class="c1"># self.check_chromosome()</span>
+        <span class="c1"># 2. Check if the given start and end position are valid</span>
+        <span class="c1"># self.check_positions()</span>
+        <span class="c1"># 3. Check insert size</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_insert_size</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+        <span class="c1"># 4. Iterate over positions and generate primers</span>
+        <span class="n">list_primers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterate_positions</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span>
+        <span class="c1"># 5. Create ordertable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ordertable</span><span class="p">(</span><span class="n">list_primers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GenomicPositionPrimerGenerator.get_ordertable"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.get_ordertable">[docs]</a>    <span class="k">def</span> <span class="nf">get_ordertable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_primers</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get ordertable for genomic position primers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            list_primers (list): List of primers</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Pandas DataFrame containing the order information for the primer pair</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">position_primer_pairs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">primers</span> <span class="ow">in</span> <span class="n">list_primers</span><span class="p">:</span>
+            <span class="n">position_primer_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GenomicPositionPrimerPair</span><span class="p">(</span><span class="n">primers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">))</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pair</span><span class="o">.</span><span class="n">ordertable</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">position_primer_pairs</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;person&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="GenomicPositionPrimerGenerator.check_chromosome"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.check_chromosome">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">check_chromosome</span><span class="p">(</span><span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the given chromosome is valid and fix formatting if necessary.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            chromosome (str): Chromosome (e.g. chr1)</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given chromosome is invalid</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Chromosome if valid or raises an exception</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># remove all whitespaces from chromosome</span>
+        <span class="n">chromosome</span> <span class="o">=</span> <span class="n">chromosome</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="c1"># pattern to match chrX where X is either a number between 1 and 22 or X, Y, M (valid access key for genome)</span>
+        <span class="n">pattern_strict</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(chr)(X|Y|M|[1-9]|1[0-9]|2[0-2])$&#39;</span><span class="p">)</span>
+        <span class="c1"># pattern to match variations of description (e.g. 19, Chr19, X, ...)</span>
+        <span class="n">pattern_tolerant</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(Chr)?(X|Y|M|[1-9]|1[0-9]|2[0-2])$&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">pattern_strict</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">chromosome</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">chromosome</span>
+        <span class="k">if</span> <span class="n">pattern_tolerant</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">chromosome</span><span class="p">):</span>
+            <span class="c1"># turn variations of description into strict format (e.g. chromosome19 -&gt; chr19, X -&gt; chrX, ...)</span>
+            <span class="n">chromosome</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(Chr)?&#39;</span><span class="p">,</span> <span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="n">chromosome</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">chromosome</span>
+
+        <span class="c1"># input could not be matched to any pattern, raise exception</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Given chromosome </span><span class="si">{</span><span class="n">chromosome</span><span class="si">}</span><span class="s1"> is invalid. Please use a valid chromosome (e.g. &quot;chr1&quot;, &quot;X&quot;, &quot;Y&quot;)&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="VariantPrimerGenerator"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator">[docs]</a><span class="k">class</span> <span class="nc">VariantPrimerGenerator</span><span class="p">(</span><span class="n">PrimerGenerator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for generating primers for a given variant.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        variant (str): Variant in HGVS format (e.g. NM_000451.3:c.1702G&gt;A)</span>
+<span class="sd">        nm_number (str): NM number of the gene</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@remove_whitespaces</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hg38&#39;</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">)</span>
+
+        <span class="c1"># # # create primer # # #</span>
+        <span class="c1"># 1. check if sequence identifier is for a coding transcript</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[HGVS VARIANT INPUT] </span><span class="si">{</span><span class="n">variant</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_variant</span><span class="p">(</span><span class="n">variant</span><span class="p">)</span>
+        <span class="c1"># 2. check mutation with mutalyzer, get genomic position</span>
+        <span class="n">coding_mutation</span><span class="p">,</span> <span class="n">genomic_mutation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_mutation</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">split_nm</span><span class="p">(</span><span class="n">coding_mutation</span><span class="o">.</span><span class="n">ac</span><span class="p">)</span>
+        <span class="n">gene_info</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">get_gene_information</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">)</span>
+        <span class="n">mutation_position</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">find_sequence_positions</span><span class="p">(</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_starts&#39;</span><span class="p">],</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exon_ends&#39;</span><span class="p">],</span>
+                                                              <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exoncount&#39;</span><span class="p">],</span> <span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;strand&#39;</span><span class="p">],</span>
+                                                              <span class="n">genomic_mutation</span><span class="o">.</span><span class="n">posedit</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
+        <span class="c1"># 3. generate primers based on mutation position in gene/exon</span>
+        <span class="k">if</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;is_in_exon&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;exon_len&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Mutation in exon, running PrimerExon&#39;</span><span class="p">)</span>
+            <span class="n">variant_primer</span> <span class="o">=</span> <span class="n">ExonPrimerGenerator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">,</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;exon_number&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span>
+                                                 <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span><span class="p">,</span> <span class="n">mutation_position</span><span class="o">=</span><span class="n">mutation_position</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;is_in_exon&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;exon_len&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mutation is in an exon, but the exon length </span><span class="si">{</span><span class="n">mutation_position</span><span class="p">[</span><span class="s2">&quot;exon_len&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> is bigger than &#39;</span>
+                        <span class="sa">f</span><span class="s1">&#39;the max insert size </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_insert</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolExonLengthError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;Exon length is bigger than the max insert size. Try using the genomic position instead. &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;Here are the start and end positions of the variant: &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">mutation_position</span><span class="p">[</span><span class="s2">&quot;mut_start&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">mutation_position</span><span class="p">[</span><span class="s2">&quot;mut_end&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&quot; &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;on chromosome &quot;</span><span class="si">{</span><span class="n">gene_info</span><span class="p">[</span><span class="s2">&quot;chromosome&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span>
+            <span class="c1"># variant_primer = GenomicPositionPrimerGenerator(gene_info[&#39;chromosome&#39;], mutation_position[&#39;mut_start&#39;],</span>
+            <span class="c1">#                                                mutation_position[&#39;mut_end&#39;], self.genome_assembly,</span>
+            <span class="c1">#                                                self.kuerzel)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Mutation is not in an exon&#39;</span><span class="p">)</span>
+            <span class="n">variant_primer</span> <span class="o">=</span> <span class="n">GenomicPositionPrimerGenerator</span><span class="p">(</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;chromosome&#39;</span><span class="p">],</span> <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;mut_start&#39;</span><span class="p">],</span>
+                                                            <span class="n">mutation_position</span><span class="p">[</span><span class="s1">&#39;mut_end&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span>
+                                                            <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span><span class="p">)</span>
+        <span class="c1"># 4. set ordertable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="n">variant_primer</span><span class="o">.</span><span class="n">ordertable</span>
+
+<div class="viewcode-block" id="VariantPrimerGenerator.check_variant"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator.check_variant">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">check_variant</span><span class="p">(</span><span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the given variant is valid and in HGVS format. Also fix formatting if possible.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            variant (str): Variant in HGVS format (e.g. NM_000451.3:c.1702G&gt;A)</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given variant is invalid</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Variant if valid or raises an exception</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># correct case</span>
+        <span class="k">if</span> <span class="n">variant</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Chr&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">variant</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;chr&#39;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Only NM numbers are supported by VariantPrimerGenerator. Use GenomicPositionPrimerGenerator instead&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="c1"># check if variant is valid</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">variant</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;NM_&#39;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Given variant </span><span class="si">{</span><span class="n">variant</span><span class="si">}</span><span class="s1"> is invalid. Variant should start with &quot;NM_&quot;&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span></div>
+
+<div class="viewcode-block" id="VariantPrimerGenerator.check_mutation"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.VariantPrimerGenerator.check_mutation">[docs]</a>    <span class="k">def</span> <span class="nf">check_mutation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Tuple</span><span class="p">[</span><span class="n">hgvs</span><span class="o">.</span><span class="n">sequencevariant</span><span class="o">.</span><span class="n">SequenceVariant</span><span class="p">,</span> <span class="n">hgvs</span><span class="o">.</span><span class="n">sequencevariant</span><span class="o">.</span><span class="n">SequenceVariant</span><span class="p">]</span> <span class="ow">or</span>
+                                 <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span> <span class="ow">or</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolMutalyzerError</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checking the given mutation using the mutalyzer api and converting into a genomic position.</span>
+
+<span class="sd">        Firstly running the mutalyzer name checker (runMutalyzer) to check the given mutation nomenclature while trying</span>
+<span class="sd">        to catch any possible errors. Then the mutation is parsed using the hgvs parser and converted into a genomic</span>
+<span class="sd">        position using the mutalyzer api.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given mutation is invalid</span>
+<span class="sd">            PrimertoolMutalyzerError: If the mutalyzer api request fails</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of coding mutation and genomic mutation (tuple)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)&#39;</span><span class="p">}</span>
+        <span class="n">api_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://mutalyzer.nl/api/normalize/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="si">}</span><span class="s1">?only_variants=false&#39;</span><span class="p">,</span>
+                                    <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+
+        <span class="c1"># check if mutalyzer api request was successful</span>
+        <span class="k">if</span> <span class="n">api_response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">api_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">api_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;EINTRONIC&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">correct_intronic_variant</span><span class="p">(</span><span class="n">api_response</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_mutation</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">errors</span> <span class="o">=</span> <span class="p">{</span><span class="n">error</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]:</span> <span class="n">error</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">api_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;custom&#39;</span><span class="p">][</span><span class="s1">&#39;errors&#39;</span><span class="p">]}</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;Status code: </span><span class="si">{</span><span class="n">api_response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">. Mutalyzer API request failed for variant &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="si">}</span><span class="s1">&quot;. &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;Errors: </span><span class="si">{</span><span class="n">errors</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolMutalyzerError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Error handling for mutalyzer response</span>
+        <span class="n">functions</span><span class="o">.</span><span class="n">mutalyzer_error_handler</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="n">coding_mutation</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">parse_mutation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;infos&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;infos&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;details&#39;</span><span class="p">])</span>
+            <span class="n">coding_mutation</span><span class="o">.</span><span class="n">ac</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;corrected_model&#39;</span><span class="p">][</span><span class="s1">&#39;reference&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">coding_mutation</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The input mutation </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="si">}</span><span class="s1"> is valid but not in coding reference: </span><span class="si">{</span><span class="n">coding_mutation</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;Input is not in coding reference!&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;equivalent_descriptions&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">genomic_mutation</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">parse_mutation</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;equivalent_descriptions&#39;</span><span class="p">][</span><span class="s1">&#39;g&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s1">&#39;chromosomal_descriptions&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">genomic_mutation</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">parse_mutation</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;chromosomal_descriptions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;g&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Could not resolve genomic mutation from mutalyzer response for variant </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="si">}</span><span class="s1">. &#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39;Response: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="s1">&#39;Could not resolve genomic mutation from mutalyzer response&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">coding_mutation</span><span class="p">,</span> <span class="n">genomic_mutation</span></div></div>
+
+
+<div class="viewcode-block" id="GenePrimerGenerator"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenePrimerGenerator">[docs]</a><span class="k">class</span> <span class="nc">GenePrimerGenerator</span><span class="p">(</span><span class="n">PrimerGenerator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for generating primers for a given gene.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        nm_number (str): NM number of the gene</span>
+<span class="sd">        gene_info (dict): Gene information</span>
+<span class="sd">        chromosome (str): Chromosome of the gene</span>
+<span class="sd">        ordertable (pd.DataFrame): DataFrame containing the order information for the primer pair</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@remove_whitespaces</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nm_number</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">genome_assembly</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hg38&#39;</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="n">kuerzel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span> <span class="o">=</span> <span class="n">nm_number</span>
+
+        <span class="c1"># # # create primer # # #</span>
+        <span class="c1"># 1. Verify that the NM number is valid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_nm_number</span><span class="p">()</span>
+        <span class="c1"># 2. Get RefSeq Information about the gene</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">get_gene_information</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;chromosome&#39;</span><span class="p">]</span>
+        <span class="c1"># 3. Get number of exons in gene</span>
+        <span class="n">num_exons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;exoncount&#39;</span><span class="p">]</span>
+        <span class="c1"># 4. Iterate over exons and create primers for each exon</span>
+        <span class="n">exon_primers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">exon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_exons</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">exon_primers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">ExonPrimerGenerator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="p">,</span> <span class="n">exon</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">genome_assembly</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kuerzel</span><span class="p">)</span><span class="o">.</span><span class="n">ordertable</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ordertable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">exon_primers</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GenePrimerGenerator.check_nm_number"><a class="viewcode-back" href="../../primertool.html#primertool.primertool.GenePrimerGenerator.check_nm_number">[docs]</a>    <span class="k">def</span> <span class="nf">check_nm_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if nm_number is valid.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            PrimertoolInputError: If the given NM number is invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;NM_&#39;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Given NM number </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nm_number</span><span class="si">}</span><span class="s1"> is invalid. NM number should start with &quot;NM_&quot;&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PrimertoolInputError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Simon Michau, Daniela Dey, Carlos Classen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primertool &mdash; primertool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="primertool package" href="primertool.html" />
+    <link rel="prev" title="How it works" href="information.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            primertool
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="information.html">How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="information.html#general-requirements-for-primers">General requirements for primers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#variantprimergenerator">VariantPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#exonprimergenerator">ExonPrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#geneprimergenerator">GenePrimerGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#genomicpositionprimergenerator">GenomicPositionPrimerGenerator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="information.html#resources-used">Resources used</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="information.html#primer3">Primer3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#genomepy">genomepy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information.html#hgvs-parser">hgvs.parser</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">primertool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html">primertool package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.exceptions">primertool.exceptions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.InSilicoPCRError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.InSilicoPCRRequestError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRRequestError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolError"><code class="docutils literal notranslate"><span class="pre">PrimertoolError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolExonLengthError"><code class="docutils literal notranslate"><span class="pre">PrimertoolExonLengthError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolGenomeError"><code class="docutils literal notranslate"><span class="pre">PrimertoolGenomeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolInputError"><code class="docutils literal notranslate"><span class="pre">PrimertoolInputError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolIntronicPositionError"><code class="docutils literal notranslate"><span class="pre">PrimertoolIntronicPositionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolMutalyzerError"><code class="docutils literal notranslate"><span class="pre">PrimertoolMutalyzerError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolNoPrimerFoundError"><code class="docutils literal notranslate"><span class="pre">PrimertoolNoPrimerFoundError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.functions">primertool.functions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.calculate_targets"><code class="docutils literal notranslate"><span class="pre">calculate_targets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.correct_intronic_variant"><code class="docutils literal notranslate"><span class="pre">correct_intronic_variant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.filter_unique_primers"><code class="docutils literal notranslate"><span class="pre">filter_unique_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.find_sequence_positions"><code class="docutils literal notranslate"><span class="pre">find_sequence_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.get_gene_information"><code class="docutils literal notranslate"><span class="pre">get_gene_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.get_snps"><code class="docutils literal notranslate"><span class="pre">get_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.mask_snps"><code class="docutils literal notranslate"><span class="pre">mask_snps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.mutalyzer_error_handler"><code class="docutils literal notranslate"><span class="pre">mutalyzer_error_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.parse_mutation"><code class="docutils literal notranslate"><span class="pre">parse_mutation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.purge_primer_pair"><code class="docutils literal notranslate"><span class="pre">purge_primer_pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.reduce_numbers_in_string"><code class="docutils literal notranslate"><span class="pre">reduce_numbers_in_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.remove_whitespaces"><code class="docutils literal notranslate"><span class="pre">remove_whitespaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.functions.split_nm"><code class="docutils literal notranslate"><span class="pre">split_nm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.insilicopcr">primertool.insilicopcr module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.logger">primertool.logger module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.logger.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.logger.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.primertool">primertool.primertool module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair"><code class="docutils literal notranslate"><span class="pre">PrimerPair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.ucsc_database">primertool.ucsc_database module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.ucsc_database.query"><code class="docutils literal notranslate"><span class="pre">query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool.unittest">primertool.unittest module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.unittest.PrimertoolTest"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#module-primertool">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="streamlit.html">streamlit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit-custom-components">streamlit_custom_components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="streamlit.html#streamlit_custom_components.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="streamlit.html#streamlit_custom_components.generate_primers"><code class="docutils literal notranslate"><span class="pre">generate_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="streamlit.html#streamlit_custom_components.kuerzel_check"><code class="docutils literal notranslate"><span class="pre">kuerzel_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit-help">streamlit_help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit-main">streamlit_main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit-primertool">streamlit_primertool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup and Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#streamlit">Streamlit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#log-access">Log access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql-setup.html">Local UCSC database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql-setup.html#download-database-tables">Download database tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql-setup.html#create-and-populate-local-database">Create and populate local database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql-setup.html#create-new-user-to-access-the-database">Create new user to access the database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment-firewall.html">Deployment using proxy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">primertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">primertool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="primertool">
+<h1>primertool<a class="headerlink" href="#primertool" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primertool.html">primertool package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.exceptions">primertool.exceptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.InSilicoPCRError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.InSilicoPCRRequestError"><code class="docutils literal notranslate"><span class="pre">InSilicoPCRRequestError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolError"><code class="docutils literal notranslate"><span class="pre">PrimertoolError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolExonLengthError"><code class="docutils literal notranslate"><span class="pre">PrimertoolExonLengthError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolGenomeError"><code class="docutils literal notranslate"><span class="pre">PrimertoolGenomeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolInputError"><code class="docutils literal notranslate"><span class="pre">PrimertoolInputError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolIntronicPositionError"><code class="docutils literal notranslate"><span class="pre">PrimertoolIntronicPositionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolMutalyzerError"><code class="docutils literal notranslate"><span class="pre">PrimertoolMutalyzerError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.exceptions.PrimertoolNoPrimerFoundError"><code class="docutils literal notranslate"><span class="pre">PrimertoolNoPrimerFoundError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.functions">primertool.functions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.calculate_targets"><code class="docutils literal notranslate"><span class="pre">calculate_targets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.correct_intronic_variant"><code class="docutils literal notranslate"><span class="pre">correct_intronic_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.filter_unique_primers"><code class="docutils literal notranslate"><span class="pre">filter_unique_primers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.find_sequence_positions"><code class="docutils literal notranslate"><span class="pre">find_sequence_positions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.get_gene_information"><code class="docutils literal notranslate"><span class="pre">get_gene_information()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.get_snps"><code class="docutils literal notranslate"><span class="pre">get_snps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.mask_snps"><code class="docutils literal notranslate"><span class="pre">mask_snps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.mutalyzer_error_handler"><code class="docutils literal notranslate"><span class="pre">mutalyzer_error_handler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.parse_mutation"><code class="docutils literal notranslate"><span class="pre">parse_mutation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.purge_primer_pair"><code class="docutils literal notranslate"><span class="pre">purge_primer_pair()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.reduce_numbers_in_string"><code class="docutils literal notranslate"><span class="pre">reduce_numbers_in_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.remove_whitespaces"><code class="docutils literal notranslate"><span class="pre">remove_whitespaces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.functions.split_nm"><code class="docutils literal notranslate"><span class="pre">split_nm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.insilicopcr">primertool.insilicopcr module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR.forward_primer"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR.forward_primer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR.reverse_primer"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR.reverse_primer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR.fasta_pcr"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR.fasta_pcr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.insilicopcr.InSilicoPCR.is_uniquely_binding"><code class="docutils literal notranslate"><span class="pre">InSilicoPCR.is_uniquely_binding()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.logger">primertool.logger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.logger.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.logger.CustomFormatter.fmt"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.fmt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.logger.CustomFormatter.FORMATS"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.FORMATS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.logger.CustomFormatter.format"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.format()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.logger.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.primertool">primertool.primertool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.nm_number"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.nm_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.exon_number"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.exon_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.variant_pos"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.variant_pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.gene_info"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.gene_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.chromosome"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.ordertable"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.check_exon"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.check_exon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.check_nm_number"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.check_nm_number()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.get_exon_boundaries"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.get_exon_boundaries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerGenerator.get_ordertable"><code class="docutils literal notranslate"><span class="pre">ExonPrimerGenerator.get_ordertable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.gene_info"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.gene_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.gene_name"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.gene_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.chromosome"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.nm_number"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.nm_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.strand"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.strand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.exon_number"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.exon_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.orderprimer_forwards"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.orderprimer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.orderprimer_reverse"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.orderprimer_reverse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.primer_forwards"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.primer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.primer_reverse"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.primer_reverse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.ordertable"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.get_order_primers"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.get_order_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.ExonPrimerPair.make_order_table"><code class="docutils literal notranslate"><span class="pre">ExonPrimerPair.make_order_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator.nm_number"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator.nm_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator.gene_info"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator.gene_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator.chromosome"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator.ordertable"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenePrimerGenerator.check_nm_number"><code class="docutils literal notranslate"><span class="pre">GenePrimerGenerator.check_nm_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.chromosome"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.start"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.end"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.end</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.ordertable"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.check_chromosome"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.check_chromosome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerGenerator.get_ordertable"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerGenerator.get_ordertable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.chromosome"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.start"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.end"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.end</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.orderprimer_forwards"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.orderprimer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.orderprimer_reverse"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.orderprimer_reverse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.primer_forwards"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.primer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.primer_reverse"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.primer_reverse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.ordertable"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.get_order_primers"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.get_order_primers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.GenomicPositionPrimerPair.make_order_table"><code class="docutils literal notranslate"><span class="pre">GenomicPositionPrimerPair.make_order_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.genome_assembly"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.genome_assembly</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.kuerzel"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.kuerzel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.genome_dir"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.genome_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.genome"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.genome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.max_insert"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.max_insert</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.min_insert"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.min_insert</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.dist_exon_borders"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.dist_exon_borders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.chromosome"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.check_genome_assembly"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.check_genome_assembly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.check_insert_size"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.check_insert_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.design_primer"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.design_primer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.fetch_genome"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.fetch_genome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerGenerator.iterate_positions"><code class="docutils literal notranslate"><span class="pre">PrimerGenerator.iterate_positions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair"><code class="docutils literal notranslate"><span class="pre">PrimerPair</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.primer_info"><code class="docutils literal notranslate"><span class="pre">PrimerPair.primer_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.mt"><code class="docutils literal notranslate"><span class="pre">PrimerPair.mt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.bp"><code class="docutils literal notranslate"><span class="pre">PrimerPair.bp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.chromosome"><code class="docutils literal notranslate"><span class="pre">PrimerPair.chromosome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.ordertable"><code class="docutils literal notranslate"><span class="pre">PrimerPair.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.orderprimer_forwards"><code class="docutils literal notranslate"><span class="pre">PrimerPair.orderprimer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.orderprimer_reverse"><code class="docutils literal notranslate"><span class="pre">PrimerPair.orderprimer_reverse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.primer_forwards"><code class="docutils literal notranslate"><span class="pre">PrimerPair.primer_forwards</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.PrimerPair.primer_reverse"><code class="docutils literal notranslate"><span class="pre">PrimerPair.primer_reverse</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator.variant"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator.variant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator.nm_number"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator.nm_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator.ordertable"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator.ordertable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator.check_mutation"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator.check_mutation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.primertool.VariantPrimerGenerator.check_variant"><code class="docutils literal notranslate"><span class="pre">VariantPrimerGenerator.check_variant()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.ucsc_database">primertool.ucsc_database module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.ucsc_database.query"><code class="docutils literal notranslate"><span class="pre">query()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool.unittest">primertool.unittest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primertool.html#primertool.unittest.PrimertoolTest"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.unittest.PrimertoolTest.test_get_gene_information"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest.test_get_gene_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="primertool.html#primertool.unittest.PrimertoolTest.test_query_ucsc_database"><code class="docutils literal notranslate"><span class="pre">PrimertoolTest.test_query_ucsc_database()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primertool.html#module-primertool">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streamlit.html">streamlit module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streamlit.html#streamlit-custom-components">streamlit_custom_components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit_custom_components.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit_custom_components.generate_primers"><code class="docutils literal notranslate"><span class="pre">generate_primers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamlit.html#streamlit_custom_components.kuerzel_check"><code class="docutils literal notranslate"><span class="pre">kuerzel_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="streamlit.html#streamlit-help">streamlit_help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamlit.html#streamlit-main">streamlit_main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamlit.html#streamlit-primertool">streamlit_primertool</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="information.html" class="btn btn-neutral float-left" title="How it works" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="primertool.html" class="btn btn-neutral float-right" title="primertool package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Simon Michau, Daniela Dey, Carlos Classen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
